@@ -7,7 +7,6 @@ export const schools: School[] = [
     { name: 'College of Arts and Science', id: "cas" },
     { name: 'College of Dentistry', id: "dentistry" },
     { name: 'Gallatin School of Individualized Study', id: "gallatin" },
-    { name: 'Graduate School of Arts and Science', id: "gsas" },
     { name: 'Leonard N. Stern School of Business', id: "stern" },
     { name: 'Liberal Studies', id: "ls" },
     { name: 'Long Island School of Medicine', id: "lisom" },

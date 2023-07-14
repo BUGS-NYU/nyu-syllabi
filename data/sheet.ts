@@ -19,8 +19,8 @@ export async function getGoogleSheetSyllabi() {
         const rows = response.data.values;
         if (rows) {
             return rows.map((row) => ({
-                timestamp: row[0],
-                email: row[1],
+                // timestamp: row[0],
+                // email: row[1],
                 albert_catalog_number: row[2],
                 course_title: row[3],
                 school: row[4],
