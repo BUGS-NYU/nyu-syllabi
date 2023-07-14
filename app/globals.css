@@ -1,27 +1,63 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+div {
+  color: grey;
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  overflow: hidden;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+h1, h2, h3, p {
+  position: relative;
+  left: 5%;
+  font-weight: 300;
+}
+
+#title {
+  font-weight: bolder;
+  color: grey;
+  margin-top: 4%
+}
+
+#subtitle {
+  margin-top: 2%;
+  font-weight: bold;
+  color: cornflowerblue
+}
+
+a {
+  text-decoration: none;
+  color: cornflowerblue;
+  transition: 0.2s;
+}
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  position: relative;
+  /* left: 0%; */
+  /* top: 2%; */
+  left: 5%;
+  font-size: 20px;
+
+}
+
+li {
+  margin-top: 1%
+}
+
+#links, li:visited {
+  text-decoration: none;
+  color: grey;
+  transition: 0.2s;
+}
+
+#links:hover {
+  color: black;
+  transition: 0.2s;
 }

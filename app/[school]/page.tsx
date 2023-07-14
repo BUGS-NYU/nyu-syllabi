@@ -1,27 +1,58 @@
 import Link from 'next/link';
-import { departments } from '../../data/departments';
+import { getGoogleSheetSyllabi } from '@/data/sheet';
+import { GetServerSideProps } from 'next';
 
-type Params = {
-    params: {
-        school: string;
-    }
+export default async function School() {
+  const schools = [
+    {
+        id: 'stern',
+        name: 'stern'
+    },
+  ]
+//   console.log("Test")
+
+  const data = await getData()
+  console.log(data); 
+
+  return (
+    <div>
+      <div>
+        <h1 id="title">NYU Syllabi</h1>
+        <h2 id="subtitle">Syllabi</h2>
+        <ul id="links">
+          {schools.map((school) => (
+            <li key={school.id}>
+              <Link id='links' href={`/${school.id}`}> 
+                {school.name}   
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <hr></hr>
+    </div>    
+  );
 }
 
-export default function School( {params}: Params ) {
-    const school_departments = departments.filter(department => department.school === params.school);
-    console.log(school_departments);
-    return (
-        <div>
-            <h1>{params.school}</h1>
-            <ul>
-                {school_departments.map((department) => (
-                    <li key={department.code}>
-                        <Link href={`/${params.school}/${department.code}`}>
-                            {department.name}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
+// export async function getServerSideProps() {
+//     const sheets = await getGoogleSheetSyllabi();
+//     console.log(sheets)
+//     console.log("Teslktrjsel;kfjdsl;kjflk;")
+//     return {
+//         props: {
+//             sheets
+//         },
+//         revalidate: 10,
+//     };
+// }
+
+async function getData() {
+    const res = await getGoogleSheetSyllabi()
+
+    if (!res) {
+        // This will activate the closest `error.js` Error Boundary
+        throw new Error('Failed to fetch data')
+    }
+
+    return res
 }
