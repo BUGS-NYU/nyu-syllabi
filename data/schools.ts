@@ -10,7 +10,6 @@ export const schools: School[] = [
     { name: 'Leonard N. Stern School of Business', id: "stern" },
     { name: 'Liberal Studies', id: "ls" },
     { name: 'Long Island School of Medicine', id: "lisom" },
-    { name: 'Opportunity Programs', id: "op" },
     { name: 'Robert F. Wagner Graduate School of Public Service', id: "wagner" },
     { name: 'Rory Meyers College of Nursing', id: "nursing" },
     { name: 'School of Global Public Health', id: "gph" },

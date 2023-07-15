@@ -7,13 +7,18 @@ export default async function School({ params } : { params: { school: string }})
   
   //map back from school_id to school name
   const school_id = params.school;  
-  const school_name = schools.filter(school => school.id === school_id)[0].name;
+  const school_listing = schools.filter(school => school.id === school_id);
+
+  if (school_listing.length === 0) {
+    return <div>Hmmm... something is not right...</div>
+  }
+
+  const school_name = school_listing[0].name;
 
   //filter syllabi by school
   const school_syllabi = syllabi.filter(syllabus => syllabus.school === school_name);
   //sort school syllabi by course id 
-  school_syllabi.sort((a, b) => (a.course_title > b.course_title) ? 1 : -1)
-//   console.log(school_syllabi)
+  school_syllabi.sort((a, b) => (a.albert_catalog_number > b.albert_catalog_number) ? 1 : -1)
 
   return (
     <div>
@@ -24,7 +29,7 @@ export default async function School({ params } : { params: { school: string }})
         <ul id="links">
           {school_syllabi.map((syllabi) => (
             <li key={syllabi.albert_catalog_number}>
-                <a id="links" href={syllabi.link}> {syllabi.course_title} ({syllabi.albert_catalog_number}) </a>
+                <a id="links" href={syllabi.link}> {syllabi.albert_catalog_number} ({syllabi.course_title}) </a>
             </li>
           ))}
         </ul>
@@ -38,7 +43,6 @@ async function getData() {
     const res = await getGoogleSheetSyllabi()
 
     if (!res) {
-        // This will activate the closest `error.js` Error Boundary
         throw new Error('Failed to fetch data')
     }
 
