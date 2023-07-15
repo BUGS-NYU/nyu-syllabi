@@ -12,7 +12,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-To work on the syllabi deployment, .env.local file will need to be provided. Submission of Syllabi is done through a Google Form which goes into a Google Sheet along with a link to the syllabus. The next.js site connects to a Google Sheet via its respective API to handle the retrieval of the syllabi. 
+To work on the syllabi deployment, a .env.local file will need to be provided in the root directory. Submission of a syllabus is done through a Google Form which links to a Google Sheet which contains the syllabus metadata, including a link to the blob itself in a Google Drive folder. The Next.js site connects to the Google Sheet via its respective API to handle the retrieval of the syllabi. 
 
 The .env.local file is formatted as below:
 ```
