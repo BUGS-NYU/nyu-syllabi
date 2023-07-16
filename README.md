@@ -21,4 +21,4 @@ GOOGLE_SHEETS_CLIENT_EMAIL=""
 GOOGLE_SHEETS_SPREADSHEET_ID""
 ```
 
-While the DB sheet used for the site is kept private, a public copy without user information can be found [here](https://docs.google.com/spreadsheets/d/1Im-Kggw4PshixN0X59UXEuug8W83srsuWZGCYn3F-ak/edit?usp=sharing). Feel free to use this sheet for development - an API key and client emial will still need to be set up.
+While the DB sheet used for the site is kept private, a public copy without user information can be found [here](https://docs.google.com/spreadsheets/d/1Im-Kggw4PshixN0X59UXEuug8W83srsuWZGCYn3F-ak/edit?usp=sharing). Feel free to use this sheet for development - an API key and client email will still need to be set up.
