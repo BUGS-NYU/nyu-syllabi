@@ -20,10 +20,10 @@ export default function Home() {
       <hr></hr>
       <div>
         <h2>Submit your Syllabus</h2>
-        <p>If you would like to submit your syllabus, you can submit it through the Google Form <a href="https://forms.gle/MKw18eFGSjkpdtKv5">here</a>.</p>
+        <p>If you would like to submit your syllabus, you can submit it through the Google Form <a href="https://forms.gle/ZEnhtKBxA8rXhhyN9">here</a>.</p>
 
         <h2>Takedown Requests</h2>
-        <p>If you would like to takedown a syllabus on this site, please send an email to nyu.syllabus@gmail.com and note the infringing material to be removed.</p>
+        <p>If you would like to takedown a syllabus on this site, please send an email to bugsnyu@gmail.com and note the infringing material to be removed.</p>
       </div>
     </div>    
   )
