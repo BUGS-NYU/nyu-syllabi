@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getGoogleSheetSyllabi } from '@/data/sheet';
 import { schools } from '@/data/schools';
+import Header from '@/app/components/header';
 
 export default async function School({ params } : { params: { school: string }}) {
   const syllabi = await getData()
@@ -23,7 +24,7 @@ export default async function School({ params } : { params: { school: string }})
   return (
     <div>
       <div>
-        <h1 id="title">NYU Syllabi</h1>
+        <Header />
         <h2 id="subtitle">Syllabi</h2>
 
         <ul id="links">
