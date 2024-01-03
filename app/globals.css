@@ -18,15 +18,26 @@ h1, h2, h3, p {
 }
 
 #title {
-  font-weight: bolder;
-  color: grey;
-  margin-top: 4%
+  font-weight: semi-bold;
+  color: #111111;
+  /* margin-top: 4% */
+  display:inline-block;
+  margin-right:10px;
+
+}
+
+#bugslogo {
+  display:inline-block;
+  margin-right:10px;
+  top: 10px;
+  position: relative;
+  width: 50px;
+  height: 50px;
 }
 
 #subtitle {
-  margin-top: 2%;
-  font-weight: bold;
-  color: cornflowerblue
+  font-weight: semi-bold;
+  color: rgb(34, 56, 93)
 }
 
 a {
@@ -43,8 +54,7 @@ ul {
   /* left: 0%; */
   /* top: 2%; */
   left: 5%;
-  font-size: 20px;
-
+  font-size: 30px;
 }
 
 li {

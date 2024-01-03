@@ -5,23 +5,47 @@ import Navbar from 'react-bootstrap/Navbar';
 import Header from './components/header'
 
 export default function Home() {
+  const logo = "/images/light/logo.svg";
+
   return (
     <div>
       <div>
-        <Header />
-        {/* <h1 id="title">NYU Syllabi</h1> */}
-        <h2 id="subtitle">Schools</h2>
-        <ul id="links">
-          {schools.map((school) => (
-            <li key={school.id}>
-              <Link id='links' href={`/${school.id}`}> 
-                {school.name}   
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div id="header">
+          <h1 id="title">
+            <Link href="https://bugsnyu.com"><img src={logo} id="bugslogo" alt="BUGS Logo" height="40px" width="40px" /></Link>
+            NYU Syllabi
+          </h1>
+        </div>
+
+        {/* Load in the schools below */}
+        <div>
+          <h1 id="subtitle">Schools</h1>
+          <ul id="links">
+            {schools.map((school) => (
+              <li key={school.id}>
+                <Link id='links' href={`/${school.id}`}> 
+                  {school.name}   
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+          
+        <div>
+          <h1 id="subtitle">Contribute</h1>
+          <ul id="links">
+            <Link id='links' href="https://forms.gle/ZEnhtKBxA8rXhhyN9">Upload a Syllabi</Link>
+          </ul>
+        </div>
+
+        <div>
+          <h1 id="subtitle">Contact</h1>
+          <ul id="links">
+            <Link id='links' href="mailto:bugsnyu@gmail.com">bugsnyu@gmail.com</Link>
+          </ul>
+        </div>
+
       </div>
-      <hr></hr>
     </div>    
   )
 }
