@@ -1,49 +1,48 @@
 import Link from 'next/link';
-import { getGoogleSheetSyllabi } from '@/data/sheet';
 import { schools } from '@/data/schools';
+import supabase from '../../utils/supabase'
+import { MotionDiv } from '../../utils/use-client';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+
+export const revalidate = 60
 
 export default async function School({ params } : { params: { school: string }}) {
-  const syllabi = await getData()
-  
+
   //map back from school_id to school name
   const school_id = params.school;  
-  const school_listing = schools.filter(school => school.id === school_id);
+  const school_full_name = schools.filter(school => school.id === school_id)[0].name
 
-  if (school_listing.length === 0) {
-    return <div>Hmmm... something is not right...</div>
+  const { data: syllabi, error } = await supabase.from('Syllabi').select('*').eq('school', school_full_name).order('course_code', { ascending: true })
+
+  if (error) {
+    console.log(error);
+    return <div>Error: Failure to fetch syllabi data </div>
   }
-
-  const school_name = school_listing[0].name;
-
-  //filter syllabi by school
-  const school_syllabi = syllabi.filter(syllabus => syllabus.school === school_name);
-  //sort school syllabi by course id 
-  school_syllabi.sort((a, b) => (a.albert_catalog_number > b.albert_catalog_number) ? 1 : -1)
+  
+  console.log(syllabi)
 
   return (
-    <div>
+    <MotionDiv
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <div>
-        <h2 id="subtitle">Syllabi</h2>
+        <div id="subtitle">
+          {/* <h1><Link href="/"><KeyboardBackspaceIcon />Previous Page</Link> </h1> */}
+          <h1>{school_full_name}</h1>
+        </div>
 
         <ul id="links">
-          {school_syllabi.map((syllabi) => (
-            <li key={syllabi.albert_catalog_number}>
-                <a id="links" href={syllabi.link}> {syllabi.albert_catalog_number} ({syllabi.course_title}) </a>
+          {syllabi.map((syllabus) => (
+            <li key={syllabus.course_code}>
+                <Link id='links' href={syllabus.link}> 
+                  {syllabus.course_code} ({syllabus.title}) 
+                </Link>
             </li>
           ))}
         </ul>
       </div>
-      <hr></hr>
-    </div>    
+    </MotionDiv>    
   );
-}
-
-async function getData() {
-    const res = await getGoogleSheetSyllabi()
-
-    if (!res) {
-        throw new Error('Failed to fetch data')
-    }
-
-    return res
 }
