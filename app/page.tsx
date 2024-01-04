@@ -12,7 +12,6 @@ export default function Home() {
         <div id="header">
           <h1 id="title">
             <Link href="https://bugsnyu.com"><img src={logo} id="bugslogo" alt="BUGS Logo" height="40px" width="40px" /></Link>
-            {/* <Link href="/">NYU Syllabi</Link>  */}
             NYU Syllabi
           </h1>
         </div>
