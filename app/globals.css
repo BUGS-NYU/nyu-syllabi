@@ -40,12 +40,20 @@ h1, h2, h3, p {
   color: rgb(34, 56, 93)
 }
 
+#backlink {
+  color: black;
+}
+
+#backlink:hover {
+  color: rgb(34, 56, 93);
+  transition: 0.2s;
+}
+
 a {
   text-decoration: none;
   color: cornflowerblue;
   transition: 0.2s;
 }
-
 
 ul {
   list-style-type: none;

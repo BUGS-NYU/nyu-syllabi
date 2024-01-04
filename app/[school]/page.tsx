@@ -18,8 +18,6 @@ export default async function School({ params } : { params: { school: string }})
     console.log(error);
     return <div>Error: Failure to fetch syllabi data </div>
   }
-  
-  console.log(syllabi)
 
   return (
     <MotionDiv
@@ -28,9 +26,9 @@ export default async function School({ params } : { params: { school: string }})
       exit={{ opacity: 0 }}
     >
       <div>
-        <div id="subtitle">
-          {/* <h1><Link href="/"><KeyboardBackspaceIcon />Previous Page</Link> </h1> */}
-          <h1>{school_full_name}</h1>
+        <div> 
+          <Link id="backlink" href="/"> <h1><KeyboardBackspaceIcon />  Previous Page </h1> </Link> 
+          <h1 id="subtitle">{school_full_name}</h1>
         </div>
 
         <ul id="links">
