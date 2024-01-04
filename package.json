@@ -18,6 +18,7 @@
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
     "autoprefixer": "10.4.14",
+    "baseui": "^0.0.0-next-186f23406",
     "bootstrap": "^5.3.2",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.3",
@@ -28,6 +29,8 @@
     "react": "18.2.0",
     "react-bootstrap": "^2.9.1",
     "react-dom": "18.2.0",
+    "styletron-engine-monolithic": "^1.0.0",
+    "styletron-react": "^6.1.1",
     "typescript": "5.0.4"
   },
   "devDependencies": {

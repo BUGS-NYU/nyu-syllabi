@@ -79,3 +79,37 @@ li {
   color: black;
   transition: 0.2s;
 }
+
+#course_code, #course_name, #schools_form {
+  width: 40%;
+  font-family: inherit;
+  border: 0;
+  border-bottom: 2px solid grey;
+  outline: 0;
+  font-size: 30px;
+  padding: 7px 0;
+  transition: border-color 0.2s;
+}
+
+#course_code:focus, #course_name:focus {
+  border-bottom: 2px solid rgb(34, 56, 93);
+}
+
+select {
+  appearance: none;
+  /* safari */
+  -webkit-appearance: none;
+  /* other styles for aesthetics */
+  width: 40%;
+  font-size: 30px;
+  /* padding: 0.675em 6em 0.675em 1em; */
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 1em;
+  padding-right: 6em;
+  background-color: #fff;
+  border: 1px solid #caced1;
+  border-radius: 0.25rem;
+  color: #000;
+  cursor: pointer;
+}

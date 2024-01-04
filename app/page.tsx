@@ -36,7 +36,7 @@ export default function Home() {
       <div>
         <h1 id="subtitle">Contribute <ArrowRightAltIcon />  </h1>
         <ul id="links">
-          <Link id='links' href="https://forms.gle/ZEnhtKBxA8rXhhyN9">Upload a Syllabi</Link>
+          <Link id='links' href="/upload">Upload a Syllabus</Link>
         </ul>
       </div>
 
