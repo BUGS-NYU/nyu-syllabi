@@ -80,7 +80,7 @@ li {
   transition: 0.2s;
 }
 
-#course_code, #course_name, #schools_form, #year_form {
+#course_code, #course_name, #schools_form, #term_form, #year_form {
   width: 40%;
   font-family: inherit;
   border: 0;
@@ -91,12 +91,12 @@ li {
   transition: border-color 0.2s;
 }
 
-#course_code:focus, #course_name:focus, #schools_form:focus, #year_form:focus {
+#course_code:focus, #course_name:focus, #schools_form:focus, #term_form:focus #year_form:focus {
   border-bottom: 2px solid rgb(34, 56, 93);
 }
 
 #filesubmit {
-  margin-top: 1%;
+  margin-top: 2%;
 }
 
 input[type="file"], input[type="submit"] {
