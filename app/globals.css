@@ -98,20 +98,20 @@ li {
 #filesubmit {
   margin-top: 2%;
 }
-
-input[type="file"], input[type="submit"] {
+input[type="file"] {
   position: relative;
 }
 
 input[type="file"]::file-selector-button {
-  width: 130px;
+  width: 120px;
   color: transparent;
 }
 
+/* Faked label styles and icon */
 input[type="file"]::before {
   position: absolute;
   pointer-events: none;
-  top: 10px;
+  top: 13px;
   left: 16px;
   height: 20px;
   width: 20px;
@@ -122,13 +122,12 @@ input[type="file"]::before {
 input[type="file"]::after {
   position: absolute;
   pointer-events: none;
-  top: 12px;
+  top: 16px;
   left: 40px;
   color: rgb(34, 56, 93);
   content: "Upload File";
 }
 
-/* file upload button */
 input[type="file"]::file-selector-button {
   border-radius: 4px;
   padding: 0 16px;
@@ -136,14 +135,35 @@ input[type="file"]::file-selector-button {
   cursor: pointer;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
   margin-right: 16px;
   transition: background-color 200ms;
 }
+
+input[type="file"] {
+  position: relative;
+  outline: none;
+  padding: 4px;
+  margin: -4px;
+}
+
+input[type="file"]:focus-within::file-selector-button,
+input[type="file"]:focus::file-selector-button {
+  outline: 2px solid rgb(34, 56, 93);
+}
+
 
 /* file upload button hover state */
 input[type="file"]::file-selector-button:hover {
   background-color: #f3f4f6;
 }
+
+/* file upload button active state */
+input[type="file"]::file-selector-button:active {
+  background-color: #e5e7eb;
+}
+
+
 
 input[type="submit"] {
   background-color: white;

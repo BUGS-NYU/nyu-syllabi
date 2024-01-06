@@ -31,7 +31,8 @@
     "react-dom": "18.2.0",
     "styletron-engine-monolithic": "^1.0.0",
     "styletron-react": "^6.1.1",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "bufferutil": "^4.0.7",
