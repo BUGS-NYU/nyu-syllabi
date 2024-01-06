@@ -1,5 +1,17 @@
 # NYU Syllabi
 
+Note: this project is being refactored to version 4 which now uses Supabase for the database/storage as a replacement for Google Sheets/Drive as well as introducing a cleaner design to make the site easier to navigate. The publically accessible site will remain until the below functionality is implemented.  
+
+- [x] Redesign schools view.
+- [x] Get data fetching working from Supabase DB
+- [ ] Implement uploads/form submissions to Supabase DB/Storage
+- [ ] Search functions to search all syllabi
+- [ ] Display Term/Year/Date Uploaded for each syllabi
+- [ ] Create design for listing syllabi properly
+- [ ] Redo the README
+
+## Previous README
+
 A Next.js site to host syllabi for NYU classes across different schools, great if you want to know what will be covered in your classes. Submission and retrieval of syllabi are both done on the site. 
 
 ## Development
