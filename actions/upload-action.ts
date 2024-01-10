@@ -50,8 +50,7 @@ export const uploadSyllabi = async (formData: FormData) => {
     }
   }
 
-  const supabase_file_path = data.fullPath;
-  
+  console.log(data, typeof data);
   // insert the syllabus into the database
   const { data: insert_data, error: insert_error } = await supabase.from('Syllabi').insert([
     {
@@ -60,7 +59,7 @@ export const uploadSyllabi = async (formData: FormData) => {
       school: upload_data.school,
       term: upload_data.term,
       year: upload_data.year,
-      link: supabase_file_path
+      link: data.path
     }
   ])
 

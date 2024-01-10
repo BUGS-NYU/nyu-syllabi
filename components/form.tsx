@@ -33,7 +33,7 @@ export default function Form() {
     const response = await uploadSyllabi(formData);
     if (response?.error) {
       const error = response.error; // already get .issues[0] from server action
-      toast.error(error.message);
+      console.log(error);
       return;
     }
 
@@ -72,7 +72,7 @@ export default function Form() {
           <datalist id="schools_form_listings">
             <option value="">Please Select a School</option>
             {schools.map((school: any) => (
-              <option value={school.name}>{school.name}</option>
+              <option key={school.name} value={school.name}>{school.name}</option>
             ))}
           </datalist>
         </li>

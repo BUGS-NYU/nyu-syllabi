@@ -8,7 +8,7 @@ export const revalidate = 60
 
 
 export default async function School({ params } : { params: { school: string }}) {
-  const supabase_storage_url = 'https://umtnkgqmgdtgeladncyw.supabase.co/storage/v1/object/public/'
+  const supabase_storage_url = 'https://umtnkgqmgdtgeladncyw.supabase.co/storage/v1/object/public/syllabi-blobs/'
 
   //map back from school_id to school name
   const school_id = params.school;  
