@@ -50,7 +50,7 @@ export default function Form() {
   return (
     <form id='syllabiform' action={clientValidate}>
       <ul>
-        <li>
+        <li key='course_code'>
           <input
             type="text"
             id="course_code"
@@ -60,7 +60,7 @@ export default function Form() {
         </li>
         <li> <input type="text" id="course_name" name="course_name" placeholder='Course Title (ex. Intro to Macroeconomics)' /> </li>
 
-        <li>
+        <li key='schools_form'>
           <input
             type="text"
             id="schools_form"
@@ -77,7 +77,7 @@ export default function Form() {
           </datalist>
         </li>
 
-        <li>
+        <li key='term_form'>
           <input
             type="text"
             name='term_form'
@@ -95,8 +95,8 @@ export default function Form() {
           </datalist>
         </li>
 
-        <li> <input type="number" id="year_form" name="year_form" placeholder='Year (ex. 2022)' min={1990} max={2030} required /> </li>
-        <li id='filesubmit'>
+        <li key='year_form'> <input type="number" id="year_form" name="year_form" placeholder='Year (ex. 2022)' min={1990} max={2030} required /> </li>
+        <li key='filesubmit' id='filesubmit'>
           <input type="file" id="file_form" name="file_form" accept=".pdf, .doc, .docx" />
           <input type="submit" value="Submit" />
         </li>
