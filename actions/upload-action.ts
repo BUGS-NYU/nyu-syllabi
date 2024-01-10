@@ -1,6 +1,7 @@
 "use server"
 import { UploadFormSchema } from "@/utils/validation";
 import supabase from '@/utils/supabase'
+import { v4 as uuidv4 } from 'uuid';
 
 export const uploadSyllabi = async (formData: FormData) => {
 
@@ -36,23 +37,30 @@ export const uploadSyllabi = async (formData: FormData) => {
     }
   }
 
-  // upload the file into supabase storage
-  const { data, error } = await supabase.storage.from('syllabi-blobs').upload(upload_data.file.name, upload_data.file)
+  // remove special characters and spaces from the file name
+  var file_name = upload_data.file.name.replace(/[^\w\s]/gi, '')
+  // var file_name = upload_data.file.name.replace(/[^\w\s]/gi, '')
+  file_name = uuidv4() + '-' + file_name;
+
+
+  const { data, error } = await supabase.storage.from('syllabi-blobs').upload(file_name, upload_data.file)
   if (error) {
     return {
       error: error.message
     }
   }
+
+  const supabase_file_path = data.fullPath;
   
   // insert the syllabus into the database
-  const { data: insert_data, error: insert_error } = await supabase.from('syllabi').insert([
+  const { data: insert_data, error: insert_error } = await supabase.from('Syllabi').insert([
     {
       course_code: upload_data.course_code,
       title: upload_data.course_name,
       school: upload_data.school,
       term: upload_data.term,
       year: upload_data.year,
-      link: data.fullPath
+      link: supabase_file_path
     }
   ])
 

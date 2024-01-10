@@ -33,9 +33,11 @@
     "styletron-engine-monolithic": "^1.0.0",
     "styletron-react": "^6.1.1",
     "typescript": "5.0.4",
+    "uuid": "^9.0.1",
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@types/uuid": "^9.0.7",
     "bufferutil": "^4.0.7",
     "encoding": "^0.1.13",
     "supports-color": "^8.1.1",

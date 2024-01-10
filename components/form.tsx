@@ -23,6 +23,12 @@ export default function Form() {
       return;
     }
 
+    // disable the submit button
+    const submit = document.getElementById('filesubmit');
+    if (submit) {
+      submit.innerHTML = '<input type="submit" value="Uploading..." disabled />';
+    }
+
     // now perform server side validation + upload the syllabi
     const response = await uploadSyllabi(formData);
     if (response?.error) {
@@ -33,6 +39,11 @@ export default function Form() {
 
     toast.success('Syllabus uploaded successfully!');
 
+    if (submit) {
+      submit.innerHTML = "<input type='file' id='file_form' name='file_form' accept='.pdf, .doc, .docx' /> <input type='submit' value='Submit' />";
+    }
+    const form = document.getElementById('syllabiform') as HTMLFormElement;
+    form.reset();
   }
 
   return (
@@ -83,7 +94,7 @@ export default function Form() {
           </datalist>
         </li>
 
-        <li> <input type="number" id="year_form" name="year_form" placeholder='Year (ex. 2022)' required /> </li>
+        <li> <input type="number" id="year_form" name="year_form" placeholder='Year (ex. 2022)' min={1990} max={2030} required /> </li>
         <li id='filesubmit'>
           <input type="file" id="file_form" name="file_form" accept=".pdf, .doc, .docx" />
           <input type="submit" value="Submit" />
