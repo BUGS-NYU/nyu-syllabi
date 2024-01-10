@@ -29,6 +29,7 @@
     "react": "18.2.0",
     "react-bootstrap": "^2.9.1",
     "react-dom": "18.2.0",
+    "react-hot-toast": "^2.4.1",
     "styletron-engine-monolithic": "^1.0.0",
     "styletron-react": "^6.1.1",
     "typescript": "5.0.4",
