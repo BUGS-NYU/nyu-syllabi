@@ -6,7 +6,9 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 export const revalidate = 60
 
+
 export default async function School({ params } : { params: { school: string }}) {
+  const supabase_storage_url = 'https://umtnkgqmgdtgeladncyw.supabase.co/storage/v1/object/public/'
 
   //map back from school_id to school name
   const school_id = params.school;  
@@ -34,7 +36,7 @@ export default async function School({ params } : { params: { school: string }})
         <ul id="links">
           {syllabi.map((syllabus) => (
             <li key={syllabus.course_code}>
-                <Link id='links' href={syllabus.link}> 
+               <Link id='links' href={supabase_storage_url + syllabus.link}> 
                   {syllabus.course_code} ({syllabus.title}) 
                 </Link>
             </li>

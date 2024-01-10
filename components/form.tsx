@@ -39,6 +39,7 @@ export default function Form() {
 
     toast.success('Syllabus uploaded successfully!');
 
+    // reset the form
     if (submit) {
       submit.innerHTML = "<input type='file' id='file_form' name='file_form' accept='.pdf, .doc, .docx' /> <input type='submit' value='Submit' />";
     }
