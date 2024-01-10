@@ -30,6 +30,9 @@ export default function Form() {
       toast.error(error.message);
       return;
     }
+
+    toast.success('Syllabus uploaded successfully!');
+
   }
 
   return (

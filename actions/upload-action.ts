@@ -1,6 +1,6 @@
 "use server"
 import { UploadFormSchema } from "@/utils/validation";
-import { SupabaseClient } from "@supabase/supabase-js";
+import supabase from '@/utils/supabase'
 
 export const uploadSyllabi = async (formData: FormData) => {
 
@@ -23,7 +23,47 @@ export const uploadSyllabi = async (formData: FormData) => {
     };
   }
 
-  // now upload the file and insert into the db
+  // validate the file
+  if (!upload_data.file) {
+    return {
+      error: "No file uploaded"
+    }
+  }
 
+  if (!(upload_data.file instanceof File)) {
+    return {
+      error: "File is not a file"
+    }
+  }
+
+  // upload the file into supabase storage
+  const { data, error } = await supabase.storage.from('syllabi-blobs').upload(upload_data.file.name, upload_data.file)
+  if (error) {
+    return {
+      error: error.message
+    }
+  }
+  
+  // insert the syllabus into the database
+  const { data: insert_data, error: insert_error } = await supabase.from('syllabi').insert([
+    {
+      course_code: upload_data.course_code,
+      title: upload_data.course_name,
+      school: upload_data.school,
+      term: upload_data.term,
+      year: upload_data.year,
+      link: data.fullPath
+    }
+  ])
+
+  if (insert_error) {
+    return {
+      error: insert_error.message
+    }
+  }
+
+  return {
+    success: true
+  }
 
 };
