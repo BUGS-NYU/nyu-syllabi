@@ -80,6 +80,18 @@ li {
   transition: 0.2s;
 }
 
+#tablelinks {
+  text-decoration: underline;
+  color: black;
+  transition: 0.2s;
+
+}
+
+#tablelinks:hover {
+  color: rgb(34, 56, 93);
+  transition: 0.2s;
+}
+
 #course_code, #course_name, #schools_form, #term_form, #year_form {
   width: 40%;
   font-family: inherit;
@@ -179,4 +191,15 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background-color: #f3f4f6;
+}
+
+#tabledisplay {
+  list-style-type: none;
+  padding: 0;
+  position: relative;
+  /* left: 0%; */
+  /* top: 2%; */
+  left: 5%;
+  font-size: 30px;
+  padding-right: 40%;
 }

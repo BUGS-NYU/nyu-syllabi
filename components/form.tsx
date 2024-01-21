@@ -1,7 +1,7 @@
 'use client';
 
 import { schools } from '../data/schools';
-import { uploadSyllabi } from '@/actions/upload-action';
+import { uploadSyllabi } from '@/actions/upload';
 import toast from 'react-hot-toast';
 import { UploadFormSchema } from '@/utils/validation';
 
