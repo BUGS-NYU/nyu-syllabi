@@ -10,8 +10,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Link from 'next/link';
 
-
-const SUPABASE_STORAGE_URL = 'https://umtnkgqmgdtgeladncyw.supabase.co/storage/v1/object/public/syllabi-blobs/'
+const SUPABASE_STORAGE_URL= 'https://umtnkgqmgdtgeladncyw.supabase.co/storage/v1/object/public/syllabi-blobs/'
 
 export default function SyllabiTable({ syllabi } : { syllabi: any[] }) {
   function createData(
@@ -19,17 +18,11 @@ export default function SyllabiTable({ syllabi } : { syllabi: any[] }) {
       course_name: string, 
       term: string, 
       year: string, 
-      file_link: string,
+      link: string,
       timestamp: string
   ) {
-    return { course_code, course_name, term, year, file_link, timestamp};
+    return { course_code, course_name, term, year, link, timestamp};
   }
-
-  // const rows = [
-  //     createData('ECON-UA-1', 'Intro to Microeconomics', 'Fall', '2021', 'https://umtnkgqmgdtgeladncyw.supabase.co/storage/v1/object/public/syllabi-blobs/ECON-UA-1.pdf', '2024-01-10 02:51:05.542373+00'),
-  //     createData('ECON-UA-2', 'Intro to Macroeconomics', 'Spring', '2021', 'https://umtnkgqmgdtgeladncyw.supabase.co/storage/v1/object/public/syllabi-blobs/ECON-UA-2.pdf', '2024-01-10 02:51:05.542373+00'),
-  //     createData('ECON-UA-3', 'Statistics for Economics', 'Fall', '2020', 'https://umtnkgqmgdtgeladncyw.supabase.co/storage/v1/object/public/syllabi-blobs/ECON-UA-3.pdf', '2024-01-10 02:51:05.542373+00')
-  // ];
 
   const rows = syllabi.map((syllabus) => (
     console.log(syllabus),
@@ -38,18 +31,20 @@ export default function SyllabiTable({ syllabi } : { syllabi: any[] }) {
       syllabus.title,
       syllabus.term,
       syllabus.year,
-      syllabus.file_link,
+      syllabus.link,
       syllabus.timestamp
     )
   ));
+
+  var date = new Date();
 
   return (
     <TableContainer component={Paper}>
       <Table sx={{ 
         minWidth: 60,
+        backgroundColor: '#f5f5f5',
          //remove all left padding
         '& .MuiTableCell-root': {
-          paddingLeft: 0,
           borderWidth: 2,
         },
         // make the table header bold, 
@@ -64,6 +59,7 @@ export default function SyllabiTable({ syllabi } : { syllabi: any[] }) {
             <TableCell align="left">Course Name</TableCell>
             <TableCell align="left">Term</TableCell>
             <TableCell align="left">Year</TableCell>
+            <TableCell align="left">Uploaded</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -74,12 +70,13 @@ export default function SyllabiTable({ syllabi } : { syllabi: any[] }) {
             >
               <TableCell align="left">{row.course_code}</TableCell>
               <TableCell component="th" scope="row">
-               <Link href={SUPABASE_STORAGE_URL + row.file_link} id='tablelinks'> 
+               <Link href={SUPABASE_STORAGE_URL + row.link} id='tablelinks'> 
                   {row.course_name} 
                 </Link>
               </TableCell>
               <TableCell align="left">{row.term}</TableCell>
               <TableCell align="left">{row.year}</TableCell>
+              <TableCell align="left">{row.timestamp}</TableCell>
             </TableRow>
           ))}
         </TableBody>

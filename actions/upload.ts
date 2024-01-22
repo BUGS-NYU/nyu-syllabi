@@ -1,10 +1,8 @@
 "use server"
 import { UploadFormSchema } from "@/utils/validation";
 import supabase from '@/utils/supabase'
-import { v4 as uuidv4 } from 'uuid';
 
 export const uploadSyllabi = async (formData: FormData) => {
-
     const upload_data = {
       course_code: formData.get('course_code'),
       course_name: formData.get('course_name'),
@@ -13,7 +11,6 @@ export const uploadSyllabi = async (formData: FormData) => {
       year: formData.get('year_form'),
       file: formData.get('file_form')
     }
-
 
   const result = UploadFormSchema.safeParse(upload_data);
   if (!result.success) {
@@ -38,12 +35,10 @@ export const uploadSyllabi = async (formData: FormData) => {
   }
 
   // remove special characters and spaces from the file name
-  var file_name = upload_data.file.name.replace(/[^\w\s]/gi, '')
-  // var file_name = upload_data.file.name.replace(/[^\w\s]/gi, '')
-  file_name = uuidv4() + '-' + file_name;
+  var file_name = upload_data.file.name;
+  file_name = file_name.replace(/\.[^/.]+$/, "").replace(/[^\w\s]/gi, '');
 
-
-  const { data, error } = await supabase.storage.from('syllabi-blobs').upload(file_name, upload_data.file)
+  const { data, error } = await supabase.storage.from('syllabi-blobs').upload(file_name, upload_data.file);
   if (error) {
     return {
       error: error.message

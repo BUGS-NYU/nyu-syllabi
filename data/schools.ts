@@ -18,5 +18,5 @@ export const schools: School[] = [
     { name: 'Steinhardt School of Culture, Education, and Human Development', id: "steinhardt" } ,
     { name: 'Tandon School of Engineering' , id: "tandon" },
     { name: 'Tisch School of the Arts', id: "tisch" },
-    { name: 'Other', id: "other" },
+    // { name: 'Other', id: "other" },
 ];
