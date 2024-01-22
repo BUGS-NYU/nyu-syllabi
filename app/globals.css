@@ -23,7 +23,6 @@ h1, h2, h3, p {
   /* margin-top: 4% */
   display:inline-block;
   margin-right:10px;
-
 }
 
 #bugslogo {
@@ -175,8 +174,6 @@ input[type="file"]::file-selector-button:active {
   background-color: #e5e7eb;
 }
 
-
-
 input[type="submit"] {
   background-color: white;
   color: black;
@@ -203,4 +200,21 @@ input[type="submit"]:hover {
   left: 5%;
   font-size: 30px;
   /* padding-right: 20%; */
+}
+
+#school_class_search {
+  width: 80%;
+  font-family: inherit;
+  border: 0;
+  border-bottom: 2px solid grey;
+  outline: 0;
+  font-size: 30px;
+  padding: 7px 0;
+  transition: border-color 0.2s;
+  margin-left: 5%;
+  margin-bottom: 2%;
+}
+
+#school_class_search:focus {
+  border-bottom: 2px solid rgb(34, 56, 93);
 }

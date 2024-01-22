@@ -4,6 +4,7 @@ import supabase from '../../utils/supabase'
 import { MotionDiv } from '../../utils/use-client';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import SyllabiTable from '../../components/syllabi-table';
+import SearchIcon from '@mui/icons-material/Search';
 
 export const revalidate = 60;
 
@@ -32,15 +33,13 @@ export default async function School({ params } : { params: { school: string }})
           <Link id="backlink" href="/"> <h1><KeyboardBackspaceIcon />  Previous Page </h1> </Link> 
           <h1 id="subtitle">{school_full_name}</h1>
         </div>
-        {/* <ul id="links">
-          {syllabi.map((syllabus) => (
-            <li key={syllabus.course_code}>
-               <Link id='links' href={supabase_storage_url + syllabus.link}> 
-                  {syllabus.course_code} ({syllabus.title}) 
-                </Link>
-            </li>
-          ))}
-        </ul> */}
+
+        <input
+          type="text"
+          id="school_class_search"
+          placeholder='Search 🔎' 
+        />
+
         <div id='tabledisplay'>
           <SyllabiTable syllabi={syllabi} />
         </div>

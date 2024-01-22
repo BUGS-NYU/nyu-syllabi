@@ -42,7 +42,7 @@ export default function SyllabiTable({ syllabi } : { syllabi: any[] }) {
     <TableContainer component={Paper}>
       <Table sx={{ 
         // minWidth: 60,
-        backgroundColor: '#f5f5f5',
+        // backgroundColor: '#f5f5f5',
          //remove all left padding
         '& .MuiTableCell-root': {
           borderWidth: 2,
