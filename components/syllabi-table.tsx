@@ -41,7 +41,7 @@ export default function SyllabiTable({ syllabi } : { syllabi: any[] }) {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ 
-        minWidth: 60,
+        // minWidth: 60,
         backgroundColor: '#f5f5f5',
          //remove all left padding
         '& .MuiTableCell-root': {
@@ -59,7 +59,7 @@ export default function SyllabiTable({ syllabi } : { syllabi: any[] }) {
             <TableCell align="left">Course Name</TableCell>
             <TableCell align="left">Term</TableCell>
             <TableCell align="left">Year</TableCell>
-            <TableCell align="left">Uploaded</TableCell>
+            {/* <TableCell align="left">Uploaded</TableCell> */}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -76,7 +76,7 @@ export default function SyllabiTable({ syllabi } : { syllabi: any[] }) {
               </TableCell>
               <TableCell align="left">{row.term}</TableCell>
               <TableCell align="left">{row.year}</TableCell>
-              <TableCell align="left">{row.timestamp}</TableCell>
+              {/* <TableCell align="left">{row.timestamp}</TableCell> */}
             </TableRow>
           ))}
         </TableBody>

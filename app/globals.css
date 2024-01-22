@@ -93,7 +93,7 @@ li {
 }
 
 #course_code, #course_name, #schools_form, #term_form, #year_form {
-  width: 40%;
+  width: 80%;
   font-family: inherit;
   border: 0;
   border-bottom: 2px solid grey;
@@ -197,9 +197,10 @@ input[type="submit"]:hover {
   list-style-type: none;
   padding: 0;
   position: relative;
+  width: 80%;
   /* left: 0%; */
   /* top: 2%; */
   left: 5%;
   font-size: 30px;
-  padding-right: 40%;
+  /* padding-right: 20%; */
 }
