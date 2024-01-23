@@ -4,7 +4,11 @@ import supabase from '../../utils/supabase'
 import { MotionDiv } from '../../utils/use-client';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import SyllabiTable from '../../components/syllabi-table';
+import Search from '../../components/search';
 import SearchIcon from '@mui/icons-material/Search';
+import TextField from '@mui/material/TextField';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
 
 export const revalidate = 60;
 
@@ -15,12 +19,15 @@ export default async function School({ params } : { params: { school: string }})
   const school_id = params.school;  
   const school_full_name = schools.filter(school => school.id === school_id)[0].name
 
+  // read search query from URL
+
   const { data: syllabi, error } = await supabase.from('Syllabi').select('*').eq('school', school_full_name).order('course_code', { ascending: true })
 
   if (error) {
     console.log(error);
     return <div>Error: Failure to fetch syllabi data </div>
   }
+
 
   return (
     <MotionDiv
@@ -34,11 +41,9 @@ export default async function School({ params } : { params: { school: string }})
           <h1 id="subtitle">{school_full_name}</h1>
         </div>
 
-        <input
-          type="text"
-          id="school_class_search"
-          placeholder='Search 🔎' 
-        />
+        <div id='search_container'>
+          <Search />
+        </div>
 
         <div id='tabledisplay'>
           <SyllabiTable syllabi={syllabi} />

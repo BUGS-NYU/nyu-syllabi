@@ -202,17 +202,23 @@ input[type="submit"]:hover {
   /* padding-right: 20%; */
 }
 
+#search_container {
+  margin-left: 5%;
+  margin-bottom: 1%;
+}
+
 #school_class_search {
-  width: 80%;
+  /* width: 80%; */
   font-family: inherit;
   border: 0;
   border-bottom: 2px solid grey;
   outline: 0;
-  font-size: 30px;
+  font-size: 20px;
   padding: 7px 0;
   transition: border-color 0.2s;
-  margin-left: 5%;
+  /* margin-left: 27%; */
   margin-bottom: 2%;
+  /* left: 5%; */
 }
 
 #school_class_search:focus {

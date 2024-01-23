@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { schools } from '../data/schools'
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import { MotionDiv } from '../utils/use-client';
+import TextField from '@mui/material/TextField';
+import Search from '../components/search';
 
 export default function Home() {
   const logo = "/images/light/logo.svg";
@@ -18,6 +20,9 @@ export default function Home() {
           NYU Syllabi
         </h1>
       </div>
+      {/* <div id='search_container'>
+        <Search />
+      </div> */}
 
       {/* Load in the schools below */}
       <div>

@@ -25,7 +25,7 @@ export default function SyllabiTable({ syllabi } : { syllabi: any[] }) {
   }
 
   const rows = syllabi.map((syllabus) => (
-    console.log(syllabus),
+    // console.log(syllabus),
     createData(
       syllabus.course_code,
       syllabus.title,
