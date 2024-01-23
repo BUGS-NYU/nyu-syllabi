@@ -8,7 +8,7 @@ const Search = () => {
   const router = useRouter();
   const [text, setText] = useState('');
   const pathname = usePathname();
-  const [query] = useDebounce(text, 600);
+  const [query] = useDebounce(text, 200);
 
   useEffect(() => {
     if (!query) {

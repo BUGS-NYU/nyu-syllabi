@@ -9,6 +9,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
+import fetchSyllabi from '@/actions/fetch-syllabi';
 
 export const revalidate = 60;
 
@@ -22,10 +23,9 @@ export default async function School({ params, searchParams } : { params: { scho
   // read search query from URL, if it exists
   const search = searchParams.search ? searchParams.search : ''  
 
-  const { data: syllabi, error } = await supabase.from('Syllabi').select('*').eq('school', school_full_name).order('course_code', { ascending: true })
+  let syllabi = await fetchSyllabi(search, school_full_name);
 
-  if (error) {
-    console.log(error);
+  if (syllabi === null) {
     return <div>Error: Failure to fetch syllabi data </div>
   }
 

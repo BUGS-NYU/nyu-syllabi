@@ -55,7 +55,7 @@ export default function SyllabiTable({ syllabi } : { syllabi: any[] }) {
       }} aria-label="syllabi-table">
         <TableHead>
           <TableRow>
-            <TableCell align="left">Course Code</TableCell>
+            <TableCell align="left" sx={{width: 150 }}>Course Code</TableCell>
             <TableCell align="left">Course Name</TableCell>
             <TableCell align="left">Term</TableCell>
             <TableCell align="left">Year</TableCell>
