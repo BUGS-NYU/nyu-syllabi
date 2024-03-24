@@ -3,7 +3,6 @@ import { schools } from '../data/schools'
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import { MotionDiv } from '../utils/use-client';
 import TextField from '@mui/material/TextField';
-import Search from '../components/search';
 
 export default function Home() {
   const logo = "/images/light/logo.svg";
@@ -20,16 +19,12 @@ export default function Home() {
           NYU Syllabi
         </h1>
       </div>
-      {/* <div id='search_container'>
-        <Search />
-      </div> */}
 
-      {/* Load in the schools below */}
       <div>
         <h1 id="subtitle">Schools <ArrowRightAltIcon /> </h1>
         <ul id="links">
           {schools.map((school) => (
-            <li key={school.id}>
+            <li key={school.id}> 
               <Link id='links' href={`/${school.id}`}> 
                 {school.name}   
               </Link>
@@ -41,7 +36,8 @@ export default function Home() {
       <div>
         <h1 id="subtitle">Contribute <ArrowRightAltIcon />  </h1>
         <ul id="links">
-          <Link id='links' href="/upload">Upload a Syllabus</Link>
+          <li> <Link id='links' href="/upload">Upload a Syllabus</Link> </li>
+          <li> <Link id='links' href="https://github.com/BUGS-NYU/nyu-syllabi">View GitHub</Link> </li>
         </ul>
       </div>
 

@@ -1,3 +1,5 @@
+// used for all supabase fetches
+
 import {createClient} from '@supabase/supabase-js'
 
 export default createClient(

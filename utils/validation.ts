@@ -1,3 +1,5 @@
+// validating form inputs 
+
 import { z } from "zod";
 import { schools } from '@/data/schools';
 
