@@ -1,6 +1,6 @@
 # NYU Syllabi
 
-A Next.js site to host and allow submission of syllabi for NYU classes across CAS and Tandon. 
+A Next.js site to host and allow submission of syllabi for NYU classes across CAS and Tandon.
 
 ## Development
 
