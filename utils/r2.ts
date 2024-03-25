@@ -1,6 +1,6 @@
+"use server"
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-"use server"
 
 const R2_ACCOUNT_ID = process.env.NEXT_PUBLIC_R2_ACCOUNT_ID;
 const ACCESS_KEY_ID =  process.env.NEXT_PUBLIC_R2_ACCESS_KEY_ID;
@@ -18,7 +18,7 @@ const s3 = new S3Client({
 
 export const uploadFile = async (file_name: string) => {
   const presigned_url = await getSignedUrl(s3, new PutObjectCommand({
-    Bucket: process.env.R2_UPLOAD_BUCKET,
+    Bucket: R2_UPLOAD_BUCKET,
     Key: file_name
   }), {
     expiresIn: 3600

@@ -10,7 +10,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Link from 'next/link';
 
-const SUPABASE_STORAGE_URL= 'https://umtnkgqmgdtgeladncyw.supabase.co/storage/v1/object/public/syllabi-blobs/'
+const R2_STORAGE_URL= 'https://blobs.nyusyllabi.com/'
 
 export default function SyllabiTable({ syllabi } : { syllabi: any[] }) {
   function createData(
@@ -25,7 +25,6 @@ export default function SyllabiTable({ syllabi } : { syllabi: any[] }) {
   }
 
   const rows = syllabi.map((syllabus) => (
-    // console.log(syllabus),
     createData(
       syllabus.course_code,
       syllabus.title,
@@ -70,7 +69,7 @@ export default function SyllabiTable({ syllabi } : { syllabi: any[] }) {
             >
               <TableCell align="left">{row.course_code}</TableCell>
               <TableCell component="th" scope="row">
-               <Link href={SUPABASE_STORAGE_URL + row.link} id='tablelinks'> 
+               <Link href={R2_STORAGE_URL + row.link} id='tablelinks'> 
                   {row.course_name} 
                 </Link>
               </TableCell>
