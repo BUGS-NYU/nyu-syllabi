@@ -19,7 +19,6 @@ export interface SyllabiObject {
 }
 
 async function fetchSyllabi(school_full_name: string) {
-  let SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   const { data, error } = await supabase.from('Syllabi')
     .select('*')
     .eq('school', school_full_name)

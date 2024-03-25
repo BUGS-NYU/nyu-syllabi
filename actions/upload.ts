@@ -2,6 +2,7 @@
 import { UploadFormSchema } from "@/utils/validation";
 import supabase from '@/utils/supabase'
 import { v4 as uuidv4 } from 'uuid';
+import { uploadFile } from '@/utils/r2'
 
 export const uploadSyllabi = async (formData: FormData) => {
   const upload_data = {
@@ -23,11 +24,16 @@ export const uploadSyllabi = async (formData: FormData) => {
   let id = uuidv4().substring(0, 8);
   let file_name = `${upload_data.course_code}-${upload_data.term}-${upload_data.year}-${id}`;
   file_name = file_name.replace(/[^\w\s]/gi, '');
-
-  const { data: file_upload, error } = await supabase.storage.from('syllabi-blobs').upload(file_name, upload_data.file);
-
-  if (error) { return { error: error.message }; }
   if (!upload_data.course_code) { return { error: "No course code" }; }
+
+  // R2 file upload
+  uploadFile(file_name).then(res => {
+    const url = res.url;
+    return fetch(url, {
+      method: "PUT",
+      body: upload_data.file
+    })
+  }).then((res) => { if (!res.ok) { return { error: "File upload failed" }; } })
 
   const course_code = upload_data.course_code.toString().toUpperCase();
   const { data: insert_data, error: insert_error } = await supabase.from('Syllabi').insert([
@@ -37,7 +43,7 @@ export const uploadSyllabi = async (formData: FormData) => {
       school: upload_data.school,
       term: upload_data.term,
       year: upload_data.year,
-      link: file_upload.path
+      link: file_name
     }
   ])
 
