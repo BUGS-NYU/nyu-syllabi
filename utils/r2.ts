@@ -2,10 +2,10 @@
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
-const R2_ACCOUNT_ID = process.env.NEXT_PUBLIC_R2_ACCOUNT_ID;
-const ACCESS_KEY_ID =  process.env.NEXT_PUBLIC_R2_ACCESS_KEY_ID;
-const SECRET_ACCESS_KEY = process.env.NEXT_PUBLIC_R2_SECRET_ACCESS_KEY;
-const R2_UPLOAD_BUCKET = process.env.NEXT_PUBLIC_R2_UPLOAD_BUCKET
+const R2_ACCOUNT_ID = process.env.R2_ACCOUNT_ID;
+const ACCESS_KEY_ID =  process.env.R2_ACCESS_KEY_ID;
+const SECRET_ACCESS_KEY = process.env.R2_SECRET_ACCESS_KEY;
+const R2_UPLOAD_BUCKET = process.env.R2_UPLOAD_BUCKET
 
 const s3 = new S3Client({
   region: 'auto',

@@ -4,7 +4,7 @@ import supabase from '@/utils/supabase'
 import { v4 as uuidv4 } from 'uuid';
 import { uploadFile } from '@/utils/r2'
 
-const VERCEL_DEPLOY_HOOK = process.env.NEXT_PUBLIC_VERCEL_DEPLOYMENT_HOOK;
+const VERCEL_DEPLOY_HOOK = process.env.VERCEL_DEPLOYMENT_HOOK;
 
 export const uploadSyllabi = async (formData: FormData) => {
   const upload_data = {
