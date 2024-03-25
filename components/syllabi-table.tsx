@@ -75,7 +75,6 @@ export default function SyllabiTable({ syllabi } : { syllabi: any[] }) {
               </TableCell>
               <TableCell align="left">{row.term}</TableCell>
               <TableCell align="left">{row.year}</TableCell>
-              {/* <TableCell align="left">{row.timestamp}</TableCell> */}
             </TableRow>
           ))}
         </TableBody>

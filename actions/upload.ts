@@ -4,6 +4,8 @@ import supabase from '@/utils/supabase'
 import { v4 as uuidv4 } from 'uuid';
 import { uploadFile } from '@/utils/r2'
 
+const VERCEL_DEPLOY_HOOK = process.env.NEXT_PUBLIC_VERCEL_DEPLOYMENT_HOOK;
+
 export const uploadSyllabi = async (formData: FormData) => {
   const upload_data = {
     course_code: formData.get('course_code'),
@@ -48,5 +50,10 @@ export const uploadSyllabi = async (formData: FormData) => {
   ])
 
   if (insert_error) { return { error: insert_error.message }; }
+
+  // the syllabus was inserted so redeploy site
+  fetch(VERCEL_DEPLOY_HOOK as string);
+
+
   return { success: true };
 };
