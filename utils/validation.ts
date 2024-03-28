@@ -7,9 +7,9 @@ const current_year = new Date().getFullYear();
 
 export const UploadFormSchema = z.object({
   course_code: z.string().regex(/^[A-Za-z]+-[A-Za-z]+-[A-Za-z0-9]+$/, {
-    message: "Please enter a valid course code (ex. EG-UY-1004)"
-  }),
-  course_name: z.string().min(1, { message: "Please enter a course name" }),
+    message: "Please enter a valid course code in the format [Characters]-[Characters]-[Numbers] (ex. EG-UY-1004)"
+  }).min(1, { message: "Please enter a course code" }).max(20, { message: "Course code must be less than 20 characters" }),
+  course_name: z.string().min(1, { message: "Please enter a course name" }).max(100, { message: "Course name must be less than 100 characters" }),
   school: z.string().regex(new RegExp("^(" + schools.map((school: any) => school.name).join("|") + ")$"), {
     message: "Please select a school from the dropdown"
   }),

@@ -95,7 +95,7 @@ export default function Form() {
           </datalist>
         </li>
 
-        <li key='year_form'> <input type="number" id="year_form" name="year_form" placeholder='Year (ex. 2022)' min={1990} max={2030} required /> </li>
+        <li key='year_form'> <input type="number" id="year_form" name="year_form" placeholder='Year (ex. 2022)' required /> </li>
         <li key='filesubmit' id='filesubmit'>
           <input type="file" id="file_form" name="file_form" accept=".pdf, .doc, .docx" />
           <input type="submit" value="Submit" />
