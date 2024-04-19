@@ -7,7 +7,7 @@ const cspHeader = `
   object-src 'none';
   base-uri 'self';
   form-action 'self';
-  frame-ancestors 'self' https://blobs.nyusyllabi.com/;
+  frame-ancestors 'self' blobs.nyusyllabi.com;
   upgrade-insecure-requests;
 `;
 
