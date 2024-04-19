@@ -15,5 +15,6 @@ export default function PreviewLayout({
       document.body.style.overflow = "visible";
     };
   }, []);
-  return <section style={{ overflow: "hidden" }}>{children}</section>;
+
+  return children;
 }
