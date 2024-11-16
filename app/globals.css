@@ -1,17 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 div {
   color: grey;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: normal;
   overflow: hidden;
 }
 
-h1, h2, h3, p {
+h1,
+h2,
+h3,
+p {
   position: relative;
   left: 5%;
   font-weight: 300;
@@ -21,13 +33,13 @@ h1, h2, h3, p {
   font-weight: semi-bold;
   color: #111111;
   /* margin-top: 4% */
-  display:inline-block;
-  margin-right:10px;
+  display: inline-block;
+  margin-right: 10px;
 }
 
 #bugslogo {
-  display:inline-block;
-  margin-right:10px;
+  display: inline-block;
+  margin-right: 10px;
   top: 10px;
   position: relative;
   width: 50px;
@@ -36,7 +48,7 @@ h1, h2, h3, p {
 
 #subtitle {
   font-weight: semi-bold;
-  color: rgb(34, 56, 93)
+  color: rgb(34, 56, 93);
 }
 
 #backlink {
@@ -65,10 +77,11 @@ ul {
 }
 
 li {
-  margin-top: 1%
+  margin-top: 1%;
 }
 
-#links, li:visited {
+#links,
+li:visited {
   text-decoration: none;
   color: grey;
   transition: 0.2s;
@@ -83,7 +96,6 @@ li {
   text-decoration: underline;
   color: black;
   transition: 0.2s;
-
 }
 
 #tablelinks:hover {
@@ -91,7 +103,11 @@ li {
   transition: 0.2s;
 }
 
-#course_code, #course_name, #schools_form, #term_form, #year_form {
+#course_code,
+#course_name,
+#schools_form,
+#term_form,
+#year_form {
   width: 80%;
   font-family: inherit;
   border: 0;
@@ -102,13 +118,17 @@ li {
   transition: border-color 0.2s;
 }
 
-#course_code:focus, #course_name:focus, #schools_form:focus, #term_form:focus #year_form:focus {
+#course_code:focus,
+#course_name:focus,
+#schools_form:focus,
+#term_form:focus #year_form:focus {
   border-bottom: 2px solid rgb(34, 56, 93);
 }
 
 #filesubmit {
   margin-top: 2%;
 }
+
 input[type="file"] {
   position: relative;
 }
@@ -162,7 +182,6 @@ input[type="file"]:focus-within::file-selector-button,
 input[type="file"]:focus::file-selector-button {
   outline: 2px solid rgb(34, 56, 93);
 }
-
 
 /* file upload button hover state */
 input[type="file"]::file-selector-button:hover {
