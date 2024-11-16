@@ -19,18 +19,18 @@ export interface SyllabiObject {
 }
 
 async function fetchSyllabi(school_full_name: string) {
-  if (process.env.DEV_MODE = "True") {
-    return [
-      {
-        course_code: "course_code",
-        title: "title",
-        term: "Spring",
-        year: "2024",
-        link: "link",
-        timestamp: ""
-      }
-    ]
-  }
+  // if (process.env.DEV_MODE = "True") {
+  //   return [
+  //     {
+  //       course_code: "course_code",
+  //       title: "title",
+  //       term: "Spring",
+  //       year: "2024",
+  //       link: "link",
+  //       timestamp: ""
+  //     }
+  //   ]
+  // }
 
   const { data, error } = await supabase.from('Syllabi')
     .select('*')
