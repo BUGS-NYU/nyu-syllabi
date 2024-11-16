@@ -19,7 +19,6 @@ export interface SyllabiObject {
 }
 
 async function fetchSyllabi(school_full_name: string) {
-  console.log(process.env.DEV_MODE)
   if (process.env.DEV_MODE = "True") {
     return [
       {
