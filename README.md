@@ -4,7 +4,7 @@ An easy to find, student restricted, repository of NYU syllabi across CAS and Ta
 
 ## Development
 
-This uses the Next.js framework with server actions.
+This uses the Next.js framework with server actions. For local development, set the DEV_MODE flag to be 'True' - this will use mock syllabi instead of fetching from the database (feel free to read the hosting section to understand the deployed architecture better).  
 
 ```bash
 npm install

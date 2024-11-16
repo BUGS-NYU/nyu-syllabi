@@ -19,6 +19,20 @@ export interface SyllabiObject {
 }
 
 async function fetchSyllabi(school_full_name: string) {
+  console.log(process.env.DEV_MODE)
+  if (process.env.DEV_MODE = "True") {
+    return [
+      {
+        course_code: "course_code",
+        title: "title",
+        term: "Spring",
+        year: "2024",
+        link: "link",
+        timestamp: ""
+      }
+    ]
+  }
+
   const { data, error } = await supabase.from('Syllabi')
     .select('*')
     .eq('school', school_full_name)
